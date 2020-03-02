@@ -1,33 +1,123 @@
-.App {
-  text-align: center;
+
+
+img {
+  margin: 0 auto;
+  align-self: center;
+  width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  display:flex;
+  top:250px;
+  position: relative;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+section {
+  margin-top: 250px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: auto;
+  width: 100%;
+  max-width: 800px;
+  vertical-align: middle
 }
 
-.App-link {
-  color: #61dafb;
+.page {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  right: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.circles-to-rhombuses-spinner, .circles-to-rhombuses-spinner * {
+  box-sizing: border-box;
+  align-self: center
+}
+
+.circles-to-rhombuses-spinner {
+  height: 15px;
+  width: calc( (15px + 15px * 1.125) * 3);
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.circles-to-rhombuses-spinner .circle {
+  height: 15px;
+  width: 15px;
+  margin-left: calc(15px * 1.125);
+  transform: rotate(45deg);
+  border-radius: 10%;
+  border: 3px solid #33AAFF;
+  overflow: hidden;
+  background: transparent;
+
+  animation: circles-to-rhombuses-animation 1200ms linear infinite;
+}
+
+.circles-to-rhombuses-spinner .circle:nth-child(1) {
+  animation-delay: calc(150ms * 1);
+  margin-left: 0
+}
+
+.circles-to-rhombuses-spinner .circle:nth-child(2) {
+  animation-delay: calc(150ms * 2);
+}
+
+.circles-to-rhombuses-spinner .circle:nth-child(3) {
+  animation-delay: calc(150ms * 3);
+}
+
+@keyframes circles-to-rhombuses-animation {
+  0% {
+    border-radius: 10%;
   }
-  to {
-    transform: rotate(360deg);
+
+  17.5% {
+    border-radius: 10%;
+  }
+
+  50% {
+    border-radius: 100%;
+  }
+
+
+  93.5% {
+    border-radius: 10%;
+  }
+
+  100% {
+    border-radius: 10%;
+  }
+}
+
+@keyframes circles-to-rhombuses-background-animation {
+  50% {
+    opacity: 0.4;
   }
 }
